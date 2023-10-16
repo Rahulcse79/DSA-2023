@@ -168,7 +168,7 @@ int main()
 {
     //Node* root = BuiltTree();
     Node* root = BuiltByLevelOrderTraversal();
-    // cout<<endl;
+    cout<<endl;
     PreOrderTraversal(root);
     cout<<endl;
     InOrderTraversal(root);
