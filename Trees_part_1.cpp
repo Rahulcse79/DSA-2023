@@ -164,22 +164,46 @@ int DiameterOfTree(Node* root)
     return ans;
 }
 
+bool KthAncestor(Node* root, int &k, int p)
+{
+    if(!root)
+    return false;
+    
+    if(root->data == p) return true;
+    
+    bool left = KthAncestor(root->left,k,p);
+    bool right = KthAncestor(root->right,k,p);
+    
+    if(left || right)
+    k--;
+    
+    if(k==0){
+    cout<< root->data<<endl;
+    }
+    
+    return left||right;
+}
+
 int main()
 {
     //Node* root = BuiltTree();
     Node* root = BuiltByLevelOrderTraversal();
-    cout<<endl;
-    PreOrderTraversal(root);
-    cout<<endl;
-    InOrderTraversal(root);
-    cout<<endl;
-    PostOrderTraversal(root);
-    cout<<endl;
-    LevelOrderTraversal(root);
-    cout<<endl;
-    cout<<HeightOfTree(root);
-    cout<<endl;
-    cout<<DiameterOfTree(root);
+    // cout<<endl;
+    // PreOrderTraversal(root);
+    // cout<<endl;
+    // InOrderTraversal(root);
+    // cout<<endl;
+    // PostOrderTraversal(root);
+    // cout<<endl;
+    // LevelOrderTraversal(root);
+    // cout<<endl;
+    // cout<<HeightOfTree(root);
+    // cout<<endl;
+    // cout<<DiameterOfTree(root);
+    //   cout<<endl;
+    //   int k = 2;
+    //   cout<<KthAncestor(root,k,20); // k=2, p=20;
+    //   cout<<endl;
     
     return 0;
 }
